@@ -10,7 +10,6 @@ import main.*;
 
 public class Player extends Entity {
 
-	GamePanel gamePanel;
 	KeyHandler keyH;
 	
 	public Player(GamePanel gamePanel, KeyHandler keyH) {
@@ -21,13 +20,13 @@ public class Player extends Entity {
 		getPlayerImage();
 	}
 	
-	public void setDefaultValues() {
-		x = 100;
-		y = 100;
+	private void setDefaultValues() {
+		x = (gamePanel.screenWidth - gamePanel.playerSizeX) / 2;
+		y = (gamePanel.screenHeight - gamePanel.playerSizeY) / 2;
 		speed = 4;
 	}
 	
-	public void getPlayerImage() {
+	private void getPlayerImage() {
 		try {
 			hit = ImageIO.read(getClass().getResourceAsStream("/player/player_hit.png"));
 			idle0 = ImageIO.read(getClass().getResourceAsStream("/player/player_idle0.png"));
@@ -44,6 +43,7 @@ public class Player extends Entity {
 	}
 	
 	public void update() {
+		// Check which keys are pressed and move in that direction
 		if (keyH.upPressed) {
 			y -= speed;
 		}
@@ -59,6 +59,7 @@ public class Player extends Entity {
 			x += speed;
 		}
 		
+		// Set animation variables
 		if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
 			moving = true;
 			animSpeed = 4;
@@ -67,6 +68,7 @@ public class Player extends Entity {
 			animSpeed = 10;
 		}
 		
+		// Change sprite for animation
 		spriteCounter++;
 		if (spriteCounter > animSpeed) {
 			spriteNum++;
@@ -80,6 +82,7 @@ public class Player extends Entity {
 	public void draw(Graphics2D g2) {
 		BufferedImage image = null;
 		
+		// Set either run or idle sprite
 		if (moving) {
 			switch (spriteNum) {
 			case 0:
@@ -112,10 +115,11 @@ public class Player extends Entity {
 			}
 		}
 		
+		// Draw sprite
 		if (flipped) {
-			g2.drawImage(image, x + gamePanel.tileSizeX, y, -gamePanel.tileSizeX, gamePanel.tileSizeY, null);
+			g2.drawImage(image, x + gamePanel.playerSizeX, y, -gamePanel.playerSizeX, gamePanel.playerSizeY, null);
 		} else {
-			g2.drawImage(image, x, y, gamePanel.tileSizeX, gamePanel.tileSizeY, null);
+			g2.drawImage(image, x, y, gamePanel.playerSizeX, gamePanel.playerSizeY, null);
 		}
 	}
 	
