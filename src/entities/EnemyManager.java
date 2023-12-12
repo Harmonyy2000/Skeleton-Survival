@@ -20,7 +20,7 @@ public class EnemyManager {
 	private ArrayList<Skeleton> skeletons = new ArrayList<>();
 	private Random random = new Random();
 	private int spawnX, spawnY, spawnCount = 0, spawnMax = 5, spawnIncreaseRate = 30;
-	private double spawnRate = 10.0, deathRate = 30;
+	private double spawnRate = 5.0, deathRate = 30;
 	private int score, scoreIncrease = 1;
 	private long currentTime, lastSpawn, lastIncrease;
 	private float drawOffsetX = 4 * Game.SCALE;

@@ -10,7 +10,7 @@ public abstract class Enemy extends Entity {
 	private Player player;
 	private int animTick, animIndex, animSpeed = 30;
 	private int state, enemyType;
-	private float speed = 0.15f * Game.SCALE;
+	private float speed = 0.2f * Game.SCALE;
 	private long spawnTime;
 
 	public Enemy(float x, float y, int width, int height, int enemyType, Player player) {

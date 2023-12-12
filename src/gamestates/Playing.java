@@ -8,12 +8,14 @@ import entities.EnemyManager;
 import entities.Player;
 import levels.LevelManager;
 import main.Game;
+import ui.Hearts;
 
 public class Playing extends State implements StateMethods {
 
 	private LevelManager levelManager;
 	private Player player;
 	private EnemyManager enemyManager;
+	private Hearts hearts;
 
 	public Playing(Game game) {
 		super(game);
@@ -25,6 +27,7 @@ public class Playing extends State implements StateMethods {
 		player = new Player(200, 200, Game.PLAYER_SCALED_WIDTH, Game.PLAYER_SCALED_HEIGHT);
 		player.loadLevelData(levelManager.getCurrentLevel().getLevelData());
 		enemyManager = new EnemyManager(this);
+		hearts = new Hearts(5, 5, GameState.PLAYING, player);
 	}
 
 	@Override
@@ -32,6 +35,10 @@ public class Playing extends State implements StateMethods {
 		levelManager.update();
 		player.update();
 		enemyManager.update();
+		hearts.update();
+		if (player.getHealth() <= 0) {
+			GameState.state = GameState.GAMEOVER;
+		}
 	}
 
 	@Override
@@ -39,6 +46,7 @@ public class Playing extends State implements StateMethods {
 		levelManager.draw(g);
 		player.render(g);
 		enemyManager.draw(g);
+		hearts.draw(g);
 	}
 
 	@Override

@@ -23,6 +23,7 @@ public class Player extends Entity {
 	private float speed = 0.5f * Game.SCALE;
 	private float normalizedSpeed = (float) (speed / Math.sqrt(Math.pow(speed, 2) + Math.pow(speed, 2)));
 	private int[][] levelData;
+	private int health = 3;
 
 	public Player(float x, float y, int width, int height) {
 		super(x, y, width, height);
@@ -131,6 +132,7 @@ public class Player extends Entity {
 
 	public void setHit(boolean hit) {
 		this.hit = hit;
+		health--;
 	}
 
 	public boolean isUp() {
@@ -163,6 +165,10 @@ public class Player extends Entity {
 
 	public void setRight(boolean right) {
 		this.right = right;
+	}
+
+	public int getHealth() {
+		return health;
 	}
 
 }
