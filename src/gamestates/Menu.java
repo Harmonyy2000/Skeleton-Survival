@@ -45,10 +45,7 @@ public class Menu extends State implements StateMethods {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			game.getPlaying().getPlayer().resetDirectionBools();
-			GameState.state = GameState.PLAYING;
-		}
+		
 	}
 
 	@Override
