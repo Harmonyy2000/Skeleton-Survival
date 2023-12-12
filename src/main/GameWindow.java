@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 public class GameWindow extends JFrame {
 
 	public GameWindow(GamePanel gamePanel) {
+		this.setTitle("Skeleton Survival");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.add(gamePanel);
 		this.setResizable(false);

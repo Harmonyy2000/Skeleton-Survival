@@ -39,7 +39,6 @@ public class Player extends Entity {
 	public void render(Graphics g) {
 		g.drawImage(animations[state][animIndex], (int) (hitbox.x - drawOffsetX), (int) (hitbox.y - drawOffsetY), width,
 				height, null);
-		drawHitbox(g);
 	}
 
 	private void importSprites() {

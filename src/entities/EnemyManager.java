@@ -71,7 +71,6 @@ public class EnemyManager {
 			g.drawImage(animations[skeleton.getState()][skeleton.getAnimIndex()],
 					(int) (skeleton.getHitbox().x - drawOffsetX), (int) (skeleton.getHitbox().y - drawOffsetY),
 					SKELETON_SCALED_SIZE, SKELETON_SCALED_SIZE, null);
-			skeleton.drawHitbox(g);
 		}
 	}
 
