@@ -1,8 +1,10 @@
+// Lists all the possible game states.
+
 package gamestates;
 
 public enum GameState {
 
-	PLAYING, MENU, OPTIONS, QUIT, GAMEOVER;
+	GAMEOVER, MENU, PLAYING, QUIT;
 
 	public static GameState state = MENU;
 

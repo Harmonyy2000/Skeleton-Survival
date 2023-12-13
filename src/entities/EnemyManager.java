@@ -19,8 +19,8 @@ public class EnemyManager {
 	private BufferedImage[][] animations;
 	private ArrayList<Skeleton> skeletons = new ArrayList<>();
 	private Random random = new Random();
-	private int spawnX, spawnY, spawnCount = 0, spawnMax = 5, spawnIncreaseRate = 30;
-	private double spawnRate = 5.0, deathRate = 30;
+	private int spawnX, spawnY, spawnCount, spawnMax = 5, spawnIncreaseRate = 15;
+	private double spawnRate = 1.0, deathRate = 15;
 	private int score, scoreIncrease = 1;
 	private long currentTime, lastSpawn, lastIncrease;
 	private float drawOffsetX = 4 * Game.SCALE;
@@ -37,6 +37,7 @@ public class EnemyManager {
 
 	public void update() {
 		currentTime = System.currentTimeMillis();
+		spawnCount = skeletons.size();
 
 		if (currentTime - lastIncrease >= spawnIncreaseRate * 1000)
 			spawnRateIncrease();
@@ -46,8 +47,10 @@ public class EnemyManager {
 
 		for (int i = skeletons.size() - 1; i >= 0; i--) {
 			Skeleton skeleton = skeletons.get(i);
-			if (currentTime - skeleton.getSpawnTime() >= deathRate * 1000)
+			if (currentTime - skeleton.getSpawnTime() >= deathRate * 1000) {
 				killSkeleton(skeleton);
+				score += 1 * scoreIncrease;
+			}
 		}
 
 		for (Skeleton skeleton : skeletons) {
@@ -60,6 +63,8 @@ public class EnemyManager {
 				break;
 			}
 		}
+		
+		playing.setScore(score);
 	}
 
 	public void draw(Graphics g) {
@@ -102,14 +107,16 @@ public class EnemyManager {
 			spawnY = random.nextInt((int) -(Game.GAME_HEIGHT * 1.5), (int) (Game.GAME_HEIGHT * 1.5));
 		} while (spawnY >= -SKELETON_SCALED_SIZE && spawnY <= Game.GAME_HEIGHT);
 		skeletons.add(new Skeleton(spawnX, spawnY, playing.getPlayer()));
-		spawnCount++;
 		lastSpawn = currentTime;
 	}
 
 	public void killSkeleton(Skeleton skeleton) {
-		spawnCount--;
 		score += 1 * scoreIncrease;
 		skeletons.remove(skeleton);
+	}
+	
+	public int getScore() {
+		return score;
 	}
 
 }

@@ -1,3 +1,6 @@
+// Individual level information and methods
+// TODO: Unit Testing
+
 package levels;
 
 public class Level {

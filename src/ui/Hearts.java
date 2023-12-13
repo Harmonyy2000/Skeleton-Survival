@@ -1,37 +1,37 @@
+// Imports the heart sprites and draws them according to player health.
+// TODO: Importing Sprites - Add more flexibility
+// TODO: Error Handling - resource loading, invalid input parameters
+
 package ui;
 
 import static utils.Constants.UI.Hearts.HEART_DEFAULT_HEIGHT;
 import static utils.Constants.UI.Hearts.HEART_DEFAULT_WIDTH;
+import static utils.Constants.UI.Hearts.HEART_EMPTY;
+import static utils.Constants.UI.Hearts.HEART_FILLED;
 import static utils.Constants.UI.Hearts.HEART_SCALED_HEIGHT;
 import static utils.Constants.UI.Hearts.HEART_SCALED_WIDTH;
-import static utils.Constants.UI.Hearts.HEART_FILLED;
-import static utils.Constants.UI.Hearts.HEART_EMPTY;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import entities.Player;
-import gamestates.GameState;
 import utils.LoadSave;
 
 public class Hearts {
-	
+
 	private Player player;
 	private int posX, posY;
 	private int[] heartStatus;
-	private GameState state;
 	private BufferedImage[] images;
-	
-	public Hearts(int posX, int posY, GameState state, Player player) {
+
+	public Hearts(int posX, int posY, Player player) {
 		this.player = player;
 		this.posX = posX;
 		this.posY = posY;
-		this.state = state;
 		this.heartStatus = new int[player.getHealth()];
-		System.out.println(heartStatus);
 		importSprites();
 	}
-	
+
 	public void update() {
 		for (int i = 0; i < heartStatus.length; i++) {
 			if (i <= player.getHealth() - 1) {
@@ -44,7 +44,8 @@ public class Hearts {
 
 	public void draw(Graphics g) {
 		for (int i = 0; i < heartStatus.length; i++) {
-			g.drawImage(images[heartStatus[i]], posX + i * (HEART_SCALED_WIDTH + posX), posY, HEART_SCALED_WIDTH, HEART_SCALED_HEIGHT, null);
+			g.drawImage(images[heartStatus[i]], posX + i * (HEART_SCALED_WIDTH + posX), posY, HEART_SCALED_WIDTH,
+					HEART_SCALED_HEIGHT, null);
 		}
 	}
 

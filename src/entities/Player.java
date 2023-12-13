@@ -23,7 +23,7 @@ public class Player extends Entity {
 	private float speed = 0.5f * Game.SCALE;
 	private float normalizedSpeed = (float) (speed / Math.sqrt(Math.pow(speed, 2) + Math.pow(speed, 2)));
 	private int[][] levelData;
-	private int health = 3;
+	private int health = 5;
 
 	public Player(float x, float y, int width, int height) {
 		super(x, y, width, height);

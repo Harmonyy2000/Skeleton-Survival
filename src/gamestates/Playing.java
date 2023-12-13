@@ -1,5 +1,11 @@
+// When the game is playing, this state displays the level, player, hearts, and enemies.
+// TODO: Score
+// TODO: Error Handling - User inputs
+
 package gamestates;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -16,6 +22,7 @@ public class Playing extends State implements StateMethods {
 	private Player player;
 	private EnemyManager enemyManager;
 	private Hearts hearts;
+	private int score;
 
 	public Playing(Game game) {
 		super(game);
@@ -23,16 +30,15 @@ public class Playing extends State implements StateMethods {
 	}
 
 	private void initClasses() {
-		levelManager = new LevelManager(game);
+		levelManager = new LevelManager();
 		player = new Player(200, 200, Game.PLAYER_SCALED_WIDTH, Game.PLAYER_SCALED_HEIGHT);
 		player.loadLevelData(levelManager.getCurrentLevel().getLevelData());
 		enemyManager = new EnemyManager(this);
-		hearts = new Hearts(5, 5, GameState.PLAYING, player);
+		hearts = new Hearts(5, 5, player);
 	}
 
 	@Override
 	public void update() {
-		levelManager.update();
 		player.update();
 		enemyManager.update();
 		hearts.update();
@@ -47,6 +53,10 @@ public class Playing extends State implements StateMethods {
 		player.render(g);
 		enemyManager.draw(g);
 		hearts.draw(g);
+		// Displaying the score
+	    Font scoreFont = new Font("Arial", Font.BOLD, 20);
+	    Color scoreColor = Color.WHITE; // Choose a color that's visible on your background
+	    drawText(g, "Score: " + score, 10, 60, scoreColor, scoreFont); // Adjust position (x, y) as needed
 	}
 
 	@Override
@@ -71,7 +81,7 @@ public class Playing extends State implements StateMethods {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
@@ -94,37 +104,37 @@ public class Playing extends State implements StateMethods {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	public void windowFocusLost() {
@@ -133,6 +143,14 @@ public class Playing extends State implements StateMethods {
 
 	public Player getPlayer() {
 		return player;
+	}
+	
+	public int getScore() {
+		return score;
+	}
+	
+	public void setScore(int score) {
+		this.score = score;
 	}
 
 }

@@ -1,3 +1,7 @@
+// Imports the menu button sprites and draws them along with setting a bounding box and detecting mouse activity.
+// TODO: Flexibility - different sizes, colors, texts
+// TODO: Error Handling - resource loading, invalid input parameters
+
 package ui;
 
 import static utils.Constants.UI.Buttons.BUTTON_DEFAULT_HEIGHT;

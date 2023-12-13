@@ -1,3 +1,6 @@
+// When the menu is open, this state displays a play button and a quit button.
+// TODO: Error Handling - User inputs
+
 package gamestates;
 
 import static utils.Constants.UI.Buttons.BUTTON_SCALED_HEIGHT;
@@ -45,22 +48,22 @@ public class Menu extends State implements StateMethods {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+		// No uses at the moment
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
@@ -79,7 +82,7 @@ public class Menu extends State implements StateMethods {
 
 	@Override
 	public void mouseDragged(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
@@ -107,12 +110,12 @@ public class Menu extends State implements StateMethods {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-
+		// No uses at the moment
 	}
 
 }

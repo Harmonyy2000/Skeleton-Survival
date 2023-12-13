@@ -1,3 +1,5 @@
+// Provides a template of methods for each state to use.
+
 package gamestates;
 
 import java.awt.Graphics;

@@ -42,7 +42,7 @@ public class Game implements Runnable {
 	private void initClasses() {
 		menu = new Menu(this);
 		playing = new Playing(this);
-		gameOver = new GameOver(this);
+		gameOver = new GameOver(this, playing);
 	}
 
 	private void startGameLoop() {
@@ -58,7 +58,6 @@ public class Game implements Runnable {
 		case PLAYING:
 			playing.update();
 			break;
-		case OPTIONS:
 		case QUIT:
 			System.exit(0);
 		case GAMEOVER:
@@ -134,7 +133,7 @@ public class Game implements Runnable {
 	public Playing getPlaying() {
 		return playing;
 	}
-	
+
 	public GameOver getGameOver() {
 		return gameOver;
 	}

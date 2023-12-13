@@ -1,3 +1,8 @@
+// Imports the level sprites and draws them.
+// TODO: Unit Testing
+// TODO: Importing Sprites - Add more flexibility
+// TODO: Error Handling - resource loading, out-of-bounds
+
 package levels;
 
 import java.awt.Graphics;
@@ -8,24 +13,21 @@ import utils.LoadSave;
 
 public class LevelManager {
 
-	@SuppressWarnings("unused")
-	private Game game;
-	private BufferedImage[] levelSprite;
+	private BufferedImage[] levelSprites;
 	private Level level;
 
-	public LevelManager(Game game) {
-		this.game = game;
+	public LevelManager() {
 		importSprites();
 		level = new Level(LoadSave.getLevelData());
 	}
 
 	private void importSprites() {
 		BufferedImage image = LoadSave.getSpriteAtlas(LoadSave.LEVEL_ATLAS);
-		levelSprite = new BufferedImage[9];
+		levelSprites = new BufferedImage[9];
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				int index = i * 3 + j;
-				levelSprite[index] = image.getSubimage(j * 16, i * 16, 16, 16);
+				levelSprites[index] = image.getSubimage(j * Game.TILE_DEFAULT_SIZE, i * Game.TILE_DEFAULT_SIZE, Game.TILE_DEFAULT_SIZE, Game.TILE_DEFAULT_SIZE);
 			}
 		}
 	}
@@ -34,14 +36,10 @@ public class LevelManager {
 		for (int i = 0; i < Game.TILES_IN_HEIGHT; i++) {
 			for (int j = 0; j < Game.TILES_IN_WIDTH; j++) {
 				int index = level.getSpriteIndex(j, i);
-				g.drawImage(levelSprite[index], j * Game.TILE_SIZE, i * Game.TILE_SIZE, Game.TILE_SIZE, Game.TILE_SIZE,
+				g.drawImage(levelSprites[index], j * Game.TILE_SIZE, i * Game.TILE_SIZE, Game.TILE_SIZE, Game.TILE_SIZE,
 						null);
 			}
 		}
-	}
-
-	public void update() {
-
 	}
 
 	public Level getCurrentLevel() {

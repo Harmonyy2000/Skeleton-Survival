@@ -1,3 +1,7 @@
+// Provides properties and methods for all entities.
+// TODO: More Flexibility
+// TODO: Error Handling
+
 package entities;
 
 import java.awt.Color;

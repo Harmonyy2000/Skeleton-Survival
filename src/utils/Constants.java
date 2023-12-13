@@ -1,3 +1,5 @@
+// A dedicated class to constants to allow easy changes.
+
 package utils;
 
 import main.Game;
@@ -10,7 +12,7 @@ public class Constants {
 			public static final int BUTTON_SCALED_WIDTH = (int) (BUTTON_DEFAULT_WIDTH * Game.SCALE);
 			public static final int BUTTON_SCALED_HEIGHT = (int) (BUTTON_DEFAULT_HEIGHT * Game.SCALE);
 		}
-		
+
 		public static class Hearts {
 			public static final int HEART_DEFAULT_WIDTH = 13, HEART_DEFAULT_HEIGHT = 12;
 			public static final int HEART_SCALED_WIDTH = (int) (HEART_DEFAULT_WIDTH * Game.SCALE);

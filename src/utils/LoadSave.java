@@ -1,3 +1,8 @@
+// Provides a way to get sprites and generate a new random level.
+// TODO: Error Handling - resource loading
+// TODO: Unit Testing
+// TODO: Singleton Pattern
+
 package utils;
 
 import java.awt.image.BufferedImage;
@@ -19,17 +24,11 @@ public class LoadSave {
 
 	public static BufferedImage getSpriteAtlas(String fileName) {
 		BufferedImage image = null;
-		InputStream is = LoadSave.class.getResourceAsStream("/" + fileName);
-		try {
+		
+		try (InputStream is = LoadSave.class.getResourceAsStream("/" + fileName);) {
 			image = ImageIO.read(is);
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				is.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 
 		return image;

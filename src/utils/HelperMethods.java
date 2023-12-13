@@ -1,3 +1,6 @@
+// Generic methods that can be used by any class.
+// TODO: Unit Testing
+
 package utils;
 
 import main.Game;
