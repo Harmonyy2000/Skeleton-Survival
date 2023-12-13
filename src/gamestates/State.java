@@ -25,11 +25,11 @@ public class State {
 	public Game getGame() {
 		return game;
 	}
-	
+
 	public void drawText(Graphics g, String text, int x, int y, Color color, Font font) {
-	    g.setColor(color);
-	    g.setFont(font);
-	    g.drawString(text, x, y);
+		g.setColor(color);
+		g.setFont(font);
+		g.drawString(text, x, y);
 	}
 
 }

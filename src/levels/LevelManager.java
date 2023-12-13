@@ -27,7 +27,8 @@ public class LevelManager {
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				int index = i * 3 + j;
-				levelSprites[index] = image.getSubimage(j * Game.TILE_DEFAULT_SIZE, i * Game.TILE_DEFAULT_SIZE, Game.TILE_DEFAULT_SIZE, Game.TILE_DEFAULT_SIZE);
+				levelSprites[index] = image.getSubimage(j * Game.TILE_DEFAULT_SIZE, i * Game.TILE_DEFAULT_SIZE,
+						Game.TILE_DEFAULT_SIZE, Game.TILE_DEFAULT_SIZE);
 			}
 		}
 	}

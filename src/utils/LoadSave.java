@@ -24,7 +24,7 @@ public class LoadSave {
 
 	public static BufferedImage getSpriteAtlas(String fileName) {
 		BufferedImage image = null;
-		
+
 		try (InputStream is = LoadSave.class.getResourceAsStream("/" + fileName);) {
 			image = ImageIO.read(is);
 		} catch (IOException e) {

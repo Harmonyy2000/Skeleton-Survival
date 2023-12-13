@@ -54,9 +54,9 @@ public class Playing extends State implements StateMethods {
 		enemyManager.draw(g);
 		hearts.draw(g);
 		// Displaying the score
-	    Font scoreFont = new Font("Arial", Font.BOLD, 20);
-	    Color scoreColor = Color.WHITE; // Choose a color that's visible on your background
-	    drawText(g, "Score: " + score, 10, 60, scoreColor, scoreFont); // Adjust position (x, y) as needed
+		Font scoreFont = new Font("Arial", Font.BOLD, 20);
+		Color scoreColor = Color.WHITE; // Choose a color that's visible on your background
+		drawText(g, "Score: " + score, 10, 60, scoreColor, scoreFont); // Adjust position (x, y) as needed
 	}
 
 	@Override
@@ -144,11 +144,11 @@ public class Playing extends State implements StateMethods {
 	public Player getPlayer() {
 		return player;
 	}
-	
+
 	public int getScore() {
 		return score;
 	}
-	
+
 	public void setScore(int score) {
 		this.score = score;
 	}

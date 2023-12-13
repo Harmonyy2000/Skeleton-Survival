@@ -33,7 +33,7 @@ public class KeyboardInputs extends KeyAdapter {
 		if (this.menu == null) {
 			throw new IllegalStateException("Menu cannot be null");
 		}
-		
+
 		this.playing = gamePanel.getGame().getPlaying();
 		if (this.playing == null) {
 			throw new IllegalStateException("Playing cannot be null");

@@ -35,9 +35,10 @@ public class GameOver extends State implements StateMethods {
 	public void draw(Graphics g) {
 		quitButton.draw(g);
 		// Displaying the score
-	    Font scoreFont = new Font("Arial", Font.BOLD, 50);
-	    Color scoreColor = Color.BLACK; // Choose a color that's visible on your background
-	    drawText(g, "Score: " + score, (Game.GAME_WIDTH / 2) - 110, (Game.GAME_HEIGHT / 2) - 100, scoreColor, scoreFont); // Adjust position (x, y) as needed
+		Font scoreFont = new Font("Arial", Font.BOLD, 50);
+		Color scoreColor = Color.BLACK; // Choose a color that's visible on your background
+		drawText(g, "Score: " + score, (Game.GAME_WIDTH / 2) - 110, (Game.GAME_HEIGHT / 2) - 100, scoreColor,
+				scoreFont); // Adjust position (x, y) as needed
 	}
 
 	private void loadButtons() {

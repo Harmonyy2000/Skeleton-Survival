@@ -63,7 +63,7 @@ public class EnemyManager {
 				break;
 			}
 		}
-		
+
 		playing.setScore(score);
 	}
 
@@ -114,7 +114,7 @@ public class EnemyManager {
 		score += 1 * scoreIncrease;
 		skeletons.remove(skeleton);
 	}
-	
+
 	public int getScore() {
 		return score;
 	}
