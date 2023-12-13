@@ -93,7 +93,6 @@ public class EnemyManager {
 
 	public void spawnRateIncrease() {
 		spawnRate *= 0.9;
-		deathRate *= 1.1;
 		spawnMax++;
 		scoreIncrease++;
 		lastIncrease = currentTime;
